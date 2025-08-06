@@ -4,8 +4,8 @@ import { ThemeContext } from '../context/ThemeContext';
 import { ThemeToggle } from './ThemeToggle';
 import { MenuIcon } from '../icons/MenuIcon';
 import { XIcon } from '../icons/XIcon';
-import btaNodeLogo from '../assets/images/btanode.png';
-import btaNodeLogoBlack from '../assets/images/btanode-black.png';
+import btaNodeLogo from '../../public/images/btanode.png';
+import btaNodeLogoBlack from '../../public/images/btanode-black.png';
 
 export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
