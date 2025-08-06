@@ -42,8 +42,8 @@ const SponsorCard = ({ sponsor, isVisible, index, tierClass }) => {
 export const Sponsors = () => {
     const [ref, isVisible] = useScrollAnimation(0.2);
     const sponsors = [
-        { name: "CGI", logo: "../../public/images/logos/CGI_Logo.png", needsBackground: false, tier: 'extra-large', link: 'https://www.cgi.com/' },
-        { name: "EY", logo: "../../public/images/logos/EY_Logo.png", needsBackground: false, tier: 'small', link: 'https://www.ey.com/' },
+        { name: "CGI", logo: "/images/logos/CGI_Logo.png", needsBackground: false, tier: 'extra-large', link: 'https://www.cgi.com/' },
+        { name: "EY", logo: "/images/logos/EY_Logo.png", needsBackground: false, tier: 'small', link: 'https://www.ey.com/' },
     ];
 
     const groupedSponsors = sponsors.reduce((acc, sponsor) => {

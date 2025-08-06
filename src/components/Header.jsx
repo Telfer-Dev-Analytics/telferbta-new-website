@@ -4,8 +4,6 @@ import { ThemeContext } from '../context/ThemeContext';
 import { ThemeToggle } from './ThemeToggle';
 import { MenuIcon } from '../icons/MenuIcon';
 import { XIcon } from '../icons/XIcon';
-import btaNodeLogo from '../../public/images/btanode.png';
-import btaNodeLogoBlack from '../../public/images/btanode-black.png';
 
 export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,6 +12,10 @@ export const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const { theme } = useContext(ThemeContext);
+
+    // Correctly reference logos from the public directory as URL strings
+    const btaNodeLogo = '/images/btanode.png';
+    const btaNodeLogoBlack = '/images/btanode-black.png';
 
     const scrollLinks = ['Events', 'Sponsors', 'FAQ', 'Contact'];
 
