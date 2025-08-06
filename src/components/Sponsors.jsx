@@ -40,9 +40,9 @@ const SponsorCard = ({ sponsor, isVisible, index, tierClass }) => {
 export const Sponsors = () => {
     const [ref, isVisible] = useScrollAnimation(0.2);
     const sponsors = [
-        // Use direct URL strings for logos in the public directory
-        { name: "CGI", logo: "/images/logos/CGI_Logo.png", needsBackground: false, tier: 'extra-large', link: 'https://www.cgi.com/' },
-        { name: "EY", logo: "/images/logos/EY_Logo.png", needsBackground: false, tier: 'small', link: 'https://www.ey.com/' },
+        // Use Vite's BASE_URL to create correct paths
+        { name: "CGI", logo: `${import.meta.env.BASE_URL}images/logos/CGI_Logo.png`, needsBackground: false, tier: 'extra-large', link: 'https://www.cgi.com/' },
+        { name: "EY", logo: `${import.meta.env.BASE_URL}images/logos/EY_Logo.png`, needsBackground: false, tier: 'small', link: 'https://www.ey.com/' },
     ];
 
     const groupedSponsors = sponsors.reduce((acc, sponsor) => {

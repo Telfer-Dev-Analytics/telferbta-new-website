@@ -13,9 +13,9 @@ export const Header = () => {
     const location = useLocation();
     const { theme } = useContext(ThemeContext);
 
-    // Correctly reference logos from the public directory as URL strings
-    const btaNodeLogo = '/images/btanode.png';
-    const btaNodeLogoBlack = '/images/btanode-black.png';
+    // Use Vite's BASE_URL to create correct paths for both dev and production
+    const btaNodeLogo = `${import.meta.env.BASE_URL}images/btanode.png`;
+    const btaNodeLogoBlack = `${import.meta.env.BASE_URL}images/btanode-black.png`;
 
     const scrollLinks = ['Events', 'Sponsors', 'FAQ', 'Contact'];
 

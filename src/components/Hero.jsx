@@ -73,8 +73,8 @@ export const Hero = () => {
                     <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
                     <video
                         ref={videoRef}
-                        // Correctly reference the video from the public directory
-                        src="/images_intro.mov"
+                        // Use Vite's BASE_URL to create the correct path for both dev and production
+                        src={`${import.meta.env.BASE_URL}images_intro.mov`}
                         autoPlay
                         muted
                         playsInline
