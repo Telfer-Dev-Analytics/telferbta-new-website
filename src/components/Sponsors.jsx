@@ -5,12 +5,10 @@ import { ThemeContext } from '../context/ThemeContext';
 const SponsorCard = ({ sponsor, isVisible, index, tierClass }) => {
     const { theme } = useContext(ThemeContext);
 
-    // Conditionally apply a background to logos that need it in dark mode
     const logoWrapperClass = (theme === 'dark' && sponsor.needsBackground)
         ? 'bg-white rounded-lg p-4'
         : 'p-4';
 
-    // Use 'a' tag if a link is provided, otherwise use 'div'
     const Wrapper = sponsor.link ? 'a' : 'div';
 
     const wrapperProps = sponsor.link
@@ -42,6 +40,7 @@ const SponsorCard = ({ sponsor, isVisible, index, tierClass }) => {
 export const Sponsors = () => {
     const [ref, isVisible] = useScrollAnimation(0.2);
     const sponsors = [
+        // Use direct URL strings for logos in the public directory
         { name: "CGI", logo: "/images/logos/CGI_Logo.png", needsBackground: false, tier: 'extra-large', link: 'https://www.cgi.com/' },
         { name: "EY", logo: "/images/logos/EY_Logo.png", needsBackground: false, tier: 'small', link: 'https://www.ey.com/' },
     ];
@@ -64,7 +63,6 @@ export const Sponsors = () => {
         'small': 'Explorer'
     };
 
-    // Defines the size of the card for each tier
     const getTierClass = (tier) => {
         switch (tier) {
             case 'extra-large':
@@ -82,7 +80,6 @@ export const Sponsors = () => {
 
     return (
         <section id="sponsors" className="py-24 bg-muted relative overflow-hidden transition-colors duration-500">
-            {/* Decorative blur elements */}
             <div className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-accent/10 rounded-full blur-3xl" />
             <div className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-indigo-500/10 rounded-full blur-3xl" />
 
@@ -97,7 +94,6 @@ export const Sponsors = () => {
                         groupedSponsors[tier] && (
                             <div key={tier}>
                                 <h3 className="text-3xl font-bold text-foreground mb-8 text-center">{tierTitles[tier]}</h3>
-                                {/* This flex container centers the logos */}
                                 <div className="flex justify-center items-center flex-wrap gap-8">
                                     {groupedSponsors[tier].map((sponsor, index) => (
                                         <SponsorCard
