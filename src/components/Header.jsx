@@ -13,7 +13,6 @@ export const Header = () => {
     const location = useLocation();
     const { theme } = useContext(ThemeContext);
 
-    // Use Vite's BASE_URL to create correct paths for both dev and production
     const btaNodeLogo = `${import.meta.env.BASE_URL}images/btanode.png`;
     const btaNodeLogoBlack = `${import.meta.env.BASE_URL}images/btanode-black.png`;
 
@@ -45,6 +44,10 @@ export const Header = () => {
         }
     };
 
+    // The Stripe Buy Button ID from your HTML
+    const stripeBuyButtonId = "buy_btn_1PdH2sEwKfHWSQrBNle6pX6w";
+    const stripeLink = `https://buy.stripe.com/${stripeBuyButtonId}`;
+
     return (
         <header className={`fixed top-4 left-0 w-full z-50 transition-transform duration-500 ${isHidden ? '-translate-y-24' : 'translate-y-0'}`}>
             <div className="max-w-4xl mx-auto px-6">
@@ -63,9 +66,15 @@ export const Header = () => {
                         </Link>
                     </nav>
                     <div className="flex items-center gap-2">
-                       <button className="join-button">
+                       {/* MODIFIED: This is now an anchor tag pointing to Stripe */}
+                       <a 
+                           href={stripeLink}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="join-button"
+                        >
                            Join
-                       </button>
+                       </a>
                        <ThemeToggle />
                        <div className="md:hidden">
                            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-foreground rounded-full hover:bg-black/5 dark:hover:bg-white/10" aria-label="Toggle menu">

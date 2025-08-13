@@ -38,18 +38,27 @@
 }
 
 @layer utilities {
-  @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+  /* Find your existing @keyframes rule for the scroll and update it */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
   }
-
-  .animate-scroll {
-    animation: scroll 40s linear infinite;
+  to {
+    /* Use the variable for the scroll distance */
+    transform: translateX(var(--scroll-width));
   }
+}
 
-  .group:hover .pause-on-hover {
+/* Find your existing .animate-scroll class and update it */
+.animate-scroll {
+  /* Use the variable for the animation duration */
+  animation: scroll var(--animation-duration) linear infinite;
+}
+
+/* This class should already exist from your previous code */
+.pause-on-hover:hover {
     animation-play-state: paused;
-  }
+}
 
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0,0,0,0.10);
@@ -111,3 +120,14 @@
 .animate-floating {
     animation: floating 6s ease-in-out infinite;
   }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}

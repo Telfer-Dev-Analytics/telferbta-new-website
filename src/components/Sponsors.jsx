@@ -42,7 +42,7 @@ export const Sponsors = () => {
     const sponsors = [
         // Use Vite's BASE_URL to create correct paths
         { name: "CGI", logo: `${import.meta.env.BASE_URL}images/logos/CGI_Logo.png`, needsBackground: false, tier: 'extra-large', link: 'https://www.cgi.com/' },
-        { name: "EY", logo: `${import.meta.env.BASE_URL}images/logos/EY_Logo.png`, needsBackground: false, tier: 'small', link: 'https://www.ey.com/' },
+        { name: "EY", logo: `${import.meta.env.BASE_URL}images/logos/EY_Logo.png`, needsBackground: true, tier: 'small', link: 'https://www.ey.com/' },
     ];
 
     const groupedSponsors = sponsors.reduce((acc, sponsor) => {

@@ -1,18 +1,41 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-// Helper component for individual event cards (Updated)
+// This custom hook is referenced but its code was not provided.
+// It should be in a file like '/hooks/useScrollAnimation.js'
+// Example of what it might look like:
+// export const useScrollAnimation = () => {
+//     const [isVisible, setIsVisible] = useState(false);
+//     const ref = useRef(null);
+//     useEffect(() => {
+//         const observer = new IntersectionObserver(([entry]) => {
+//             if (entry.isIntersecting) {
+//                 setIsVisible(true);
+//                 observer.unobserve(entry.target);
+//             }
+//         }, { threshold: 0.1 });
+//         if (ref.current) {
+//             observer.observe(ref.current);
+//         }
+//         return () => {
+//             if (ref.current) {
+//                 observer.unobserve(ref.current);
+//             }
+//         };
+//     }, []);
+//     return [ref, isVisible];
+// };
+
+// Helper component for individual event cards
 const EventCard = ({ event, isVisible, index }) => {
     const [timeLeft, setTimeLeft] = useState('');
     const [isPast, setIsPast] = useState(false);
     const [showCountdown, setShowCountdown] = useState(false);
     const cardRef = useRef(null);
 
-    // 3D Tilt Effect Logic from MissionCard
+    // 3D Tilt Effect Logic
     const handleMouseMove = (e) => {
         const { clientX, clientY, currentTarget } = e;
         const { left, top, width, height } = currentTarget.getBoundingClientRect();
-        // Key Change: Increased the divisor from 15 to 25 to reduce tilt
         const x = (clientX - left - width / 2) / 55;
         const y = (clientY - top - height / 2) / 55;
 
@@ -24,7 +47,6 @@ const EventCard = ({ event, isVisible, index }) => {
         e.currentTarget.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
         e.currentTarget.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) scale3d(1, 1, 1)';
     };
-
 
     useEffect(() => {
         const eventDate = new Date(event.date);
@@ -67,7 +89,7 @@ const EventCard = ({ event, isVisible, index }) => {
         day: 'numeric',
     });
 
-    return (
+   return (
         <div 
             ref={cardRef}
             onMouseMove={handleMouseMove}
@@ -76,7 +98,8 @@ const EventCard = ({ event, isVisible, index }) => {
                 transition: `opacity 0.5s, transform 0.5s`,
                 transitionDelay: `${index * 150}ms` 
             }} 
-            className={`group relative rounded-2xl overflow-hidden border border-white/10 bg-background/50 backdrop-blur-lg shadow-lg ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}
+            // MODIFIED LINE: Added w-full and max-w-sm to control card size
+            className={`group relative w-full max-w-sm rounded-2xl overflow-hidden border border-white/10 bg-background/50 backdrop-blur-lg shadow-lg ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}
         >
             <div className="relative z-10 flex flex-col h-full">
                 <img src={event.image} alt={event.title} className="w-full h-48 object-cover"/>
@@ -92,12 +115,20 @@ const EventCard = ({ event, isVisible, index }) => {
                     </div>
                 </div>
                 <div className="p-6 pt-0">
-                    <button 
-                        disabled={isPast}
-                        className={`w-full py-2 px-4 rounded-full font-bold transition-all duration-300 ${isPast ? 'bg-gray-400 text-gray-600 cursor-not-allowed' : 'join-button'}`}
-                    >
-                        {isPast ? 'Event Ended' : 'Sign Up'}
-                    </button>
+                    {isPast ? (
+                        <div className="w-full py-2 px-4 rounded-full font-bold text-center bg-gray-400 text-gray-600 cursor-not-allowed">
+                            Event Ended
+                        </div>
+                    ) : (
+                        <a
+                            href={event.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="join-button w-full block py-2 px-4 rounded-full font-bold text-center transition-all duration-300"
+                        >
+                            Sign Up
+                        </a>
+                    )}
                 </div>
             </div>
              <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
@@ -105,15 +136,24 @@ const EventCard = ({ event, isVisible, index }) => {
     );
 };
 
-
 export const Events = () => {
-    const [ref, isVisible] = useScrollAnimation();
-    // Dates updated for testing countdown and disabled states
+    // For demonstration without the hook, let's assume it's always visible
+    const ref = useRef(null);
+    const isVisible = true;
+    
     const events = [
-        { title: "TechTalk: AI in Finance", date: "2025-07-25T18:00:00", description: "Explore how AI is revolutionizing the financial sector with guest speakers from top firms.", image: "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=2832&auto=format&fit=crop" },
-        { title: "Networking Night", date: "2025-11-05T18:00:00", description: "Connect with professionals from Ottawa's thriving tech scene.", image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?q=80&w=2940&auto=format&fit=crop" },
-        { title: "Case Competition", date: "2025-01-20T09:00:00", description: "Solve real-world business technology challenges and win prizes.", image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2940&auto=format&fit=crop" },
+        { 
+            title: "Meet Your Future", 
+            date: "2025-10-15T10:00:00", 
+            description: "Explore how AI is revolutionizing the financial sector with guest speakers from top firms.", 
+            image: "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=2832&auto=format&fit=crop",
+            link: "https://example.com/signup"
+        },
+         
     ];
+
+    // Sort events by date to ensure the nearest one is first
+    const sortedEvents = events.sort((a, b) => new Date(a.date) - new Date(b.date));
 
     return (
         <section id="events" className="py-24 bg-transparent relative"> 
@@ -122,8 +162,10 @@ export const Events = () => {
                     <h2 className="text-4xl font-bold text-foreground">Upcoming Events</h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 mx-auto mt-4 rounded-full" />
                 </div>
-                <div className="grid md:grid-cols-3 gap-8">
-                    {events.map((event, index) => (
+                
+                {/* MODIFIED LINE: This container now always centers its content */}
+                <div className="flex flex-wrap justify-center gap-8">
+                    {sortedEvents.map((event, index) => (
                         <EventCard key={index} event={event} isVisible={isVisible} index={index} />
                     ))}
                 </div>
