@@ -13,6 +13,7 @@ export const Header = () => {
     const location = useLocation();
     const { theme } = useContext(ThemeContext);
 
+    // Use Vite's BASE_URL to create correct paths for both dev and production
     const btaNodeLogo = `${import.meta.env.BASE_URL}images/btanode.png`;
     const btaNodeLogoBlack = `${import.meta.env.BASE_URL}images/btanode-black.png`;
 
@@ -44,10 +45,6 @@ export const Header = () => {
         }
     };
 
-    // The Stripe Buy Button ID from your HTML
-    const stripeBuyButtonId = "buy_btn_1PdH2sEwKfHWSQrBNle6pX6w";
-    const stripeLink = `https://buy.stripe.com/${stripeBuyButtonId}`;
-
     return (
         <header className={`fixed top-4 left-0 w-full z-50 transition-transform duration-500 ${isHidden ? '-translate-y-24' : 'translate-y-0'}`}>
             <div className="max-w-4xl mx-auto px-6">
@@ -61,20 +58,14 @@ export const Header = () => {
                                 {link}
                             </button>
                         ))}
-                        <Link to="/blog" className="font-medium text-text-muted hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 px-4 py-2 rounded-full transition-all duration-200">
+                        {/*<Link to="/blog" className="font-medium text-text-muted hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 px-4 py-2 rounded-full transition-all duration-200">
                             Blog
-                        </Link>
+                        </Link>*/}
                     </nav>
                     <div className="flex items-center gap-2">
-                       {/* MODIFIED: This is now an anchor tag pointing to Stripe */}
-                       <a 
-                           href={stripeLink}
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           className="join-button"
-                        >
+                       {/*<button className="join-button">
                            Join
-                       </a>
+                       </button>*/}
                        <ThemeToggle />
                        <div className="md:hidden">
                            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-foreground rounded-full hover:bg-black/5 dark:hover:bg-white/10" aria-label="Toggle menu">
@@ -90,9 +81,9 @@ export const Header = () => {
                                 {link}
                             </button>
                         ))}
-                         <Link to="/blog" className="block w-full text-left px-6 py-3 text-text-muted hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10" onClick={() => setIsMenuOpen(false)}>
+                        {/*} <Link to="/blog" className="block w-full text-left px-6 py-3 text-text-muted hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10" onClick={() => setIsMenuOpen(false)}>
                             Blog
-                        </Link>
+                        </Link>*/}
                     </div>
                 )}
             </div>

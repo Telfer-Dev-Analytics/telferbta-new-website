@@ -6,24 +6,25 @@ import { LinkedInIcon } from '../icons/LinkedInIcon';
 export const Team = () => {
     const [ref, isVisible] = useScrollAnimation();
 
+    // Corrected image paths to be relative from the public directory
     const teamMembers = [
-        { name: "Aahana Bagga", role: "Co-President", image: `${import.meta.env.BASE_URL}images/headshots/Aahana.jpg`, linkedin: "https://www.linkedin.com/in/aahanabagga/" },
-        { name: "Alexandra Ganguli", role: "Co-President", image: `${import.meta.env.BASE_URL}images/headshots/Alexandra.jpg`, linkedin: "#" },
-        { name: "Ayan Arwo", role: "Vice President of Events", image: `${import.meta.env.BASE_URL}images/headshots/Ayan.jpg`, linkedin: "#" },
-        { name: "Mira Zakhour", role: "Director of Events", image: `${import.meta.env.BASE_URL}images/headshots/Mira.png`, linkedin: "#" },
-        { name: "Arya Reza", role: "Director of Events", image: `${import.meta.env.BASE_URL}images/headshots/Arya.jpg`, linkedin: "#" },
-        { name: "Dea Colic", role: "Director of Events", image: `${import.meta.env.BASE_URL}images/headshots/Dea.jpg`, linkedin: "#" },
-        { name: "Benjamin Whiting", role: "Vice President of Finance", image: `${import.meta.env.BASE_URL}images/headshots/Ben.jpg`, linkedin: "#" },
-        { name: "Fatima Jan", role: "Director of Finance", image: `${import.meta.env.BASE_URL}images/headshots/Fatima.jpg`, linkedin: "#" },
-        { name: "Luka Bernabo", role: "Vice President of Corporate Affairs", image: `${import.meta.env.BASE_URL}images/headshots/Luka.jpg`, linkedin: "#" },
-        { name: "Destin Mwaitelele", role: "Director of Corporate Affairs", image: `${import.meta.env.BASE_URL}images/headshots/Destin.jpeg`, linkedin: "#" },
-        { name: "Maryann Issac", role: "Director of Corporate Affairs", image: `${import.meta.env.BASE_URL}images/headshots/Maryann.jpg`, linkedin: "#" },
-        { name: "Reema Alwadi", role: "Co-Vice President of Development", image: `${import.meta.env.BASE_URL}images/headshots/Reema.jpg`, linkedin: "#" },
-        { name: "Elias Fatine", role: "Co-Vice President of Development", image: `${import.meta.env.BASE_URL}images/headshots/Elias.jpg`, linkedin: "#" },
-        { name: "Bohdan Zaglyadin", role: "Vice President of Marketing", image: `${import.meta.env.BASE_URL}images/headshots/Bohdan.jpg`, linkedin: "#" },
-        { name: "Wanees Fatine", role: "Director of Content Creation", image: `${import.meta.env.BASE_URL}images/headshots/Wanees.jpg`, linkedin: "#" },
-        { name: "Lara Helal", role: "Director of Graphic Design", image: `${import.meta.env.BASE_URL}images/headshots/Lara.jpg`, linkedin: "#" },
-        { name: "Zaina Rahman", role: "Vice President of Internal Affairs", image: `${import.meta.env.BASE_URL}images/headshots/Zaina.jpeg`, linkedin: "#" },
+        { name: "Aahana Bagga", role: "Co-President", image: "/images/headshots/Aahana.jpg", linkedin: "https://www.linkedin.com/in/aahana-bagga/" },
+        { name: "Alexandra Ganguli", role: "Co-President", image: "/images/headshots/Alexandra.jpg", linkedin: "https://www.linkedin.com/in/alexandraganguli/" },
+        { name: "Ayan Arwo", role: "Vice President of Events", image: "/images/headshots/Ayan.jpg", linkedin: "https://www.linkedin.com/in/ayan-arwo/" },
+        { name: "Mira Zakhour", role: "Director of Events", image: "/images/headshots/Mira.png", linkedin: "https://www.linkedin.com/in/mirazakhour/" },
+        { name: "Arya Reza", role: "Director of Events", image: "/images/headshots/Arya.jpg", linkedin: "https://www.linkedin.com/in/arya-reza-1723b0345/" },
+        { name: "Dea Colic", role: "Director of Events", image: "/images/headshots/Dea.jpg", linkedin: "https://www.linkedin.com/in/dea-colic/" },
+        { name: "Benjamin Whiting", role: "Vice President of Finance", image: "/images/headshots/Ben.jpg", linkedin: "https://www.linkedin.com/in/benjamin-whiting-/" },
+        { name: "Fatima Jan", role: "Director of Finance", image: "/images/headshots/Fatima.jpg", linkedin: "https://www.linkedin.com/in/fatima-jan29/" },
+        { name: "Luka Bernabo", role: "Vice President of Corporate Affairs", image: "/images/headshots/Luka.jpg", linkedin: "https://www.linkedin.com/in/luka-bernabo-135bb5251/" },
+        { name: "Destin Mwaitelele", role: "Director of Corporate Affairs", image: "/images/headshots/Destin.jpeg", linkedin: "https://www.linkedin.com/in/destin-mwaiteleke/" },
+        { name: "Maryann Issac", role: "Director of Corporate Affairs", image: "/images/headshots/Maryann.jpg", linkedin: "https://www.linkedin.com/in/maryann-issac-77b5121b6/" },
+        { name: "Reema Alwadi", role: "Co-Vice President of Development", image: "/images/headshots/Reema.jpg", linkedin: "https://www.linkedin.com/in/reema-alwadi/" },
+        { name: "Elias Fatine", role: "Co-Vice President of Development", image: "/images/headshots/Elias.jpg", linkedin: "https://www.linkedin.com/in/eliasfatine/" },
+        { name: "Bohdan Zaglyadin", role: "Vice President of Marketing", image: "/images/headshots/Bohdan.jpg", linkedin: "https://www.linkedin.com/in/bohdan-zaglyadin-608a2921a/" },
+        { name: "Wanees Fatine", role: "Director of Content Creation", image: "/images/headshots/Wanees.jpg", linkedin: "https://www.linkedin.com/in/wanees-fatine-6b482b342/" },
+        { name: "Lara Helal", role: "Director of Graphic Design", image: "/images/headshots/Lara.jpg", linkedin: "https://www.linkedin.com/in/lara-helal-5b275133b/" },
+        { name: "Zaina Rahman", role: "Vice President of Internal Affairs", image: "/images/headshots/Zaina.jpeg", linkedin: "https://www.linkedin.com/in/zainarahman/" },
     ];
 
     const duplicatedTeamMembers = [...teamMembers, ...teamMembers];
@@ -59,7 +60,12 @@ export const Team = () => {
                         {duplicatedTeamMembers.map((member, index) => (
                             <div key={index} className="flex-shrink-0 w-64 text-center">
                                 <div className="relative">
-                                    <img src={member.image} alt={member.name} className="w-48 h-48 mx-auto rounded-full object-cover border-4 border-border shadow-lg" />
+                                    <img 
+                                        src={member.image} 
+                                        alt={member.name} 
+                                        className="w-48 h-48 mx-auto rounded-full object-cover border-4 border-border shadow-lg" 
+                                        onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/192x192/6366f1/ffffff?text=Image' }}
+                                    />
                                     <div className="mt-4">
                                         <h3 className="text-xl font-bold text-foreground">{member.name}</h3>
                                         <p className="text-accent">{member.role}</p>
@@ -74,7 +80,6 @@ export const Team = () => {
                                             className="mt-2 inline-block text-text-muted hover:text-accent transition-colors"
                                             aria-label={`${member.name}'s LinkedIn Profile`}
                                         >
-                                            {/* This line is now uncommented */}
                                             <LinkedInIcon className="w-6 h-6" />
                                         </a>
                                     </div>
@@ -87,3 +92,5 @@ export const Team = () => {
         </section>
     );
 };
+
+export default Team;

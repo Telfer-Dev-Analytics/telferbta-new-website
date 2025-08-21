@@ -7,6 +7,7 @@ import Lenis from '@studio-freight/lenis';
 // Import Layout Components
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { GiveawayPopup } from './components/GiveawayPopup'; // Import the new component
 
 // Import Page Components
 import HomePage from './pages/HomePage';
@@ -64,6 +65,7 @@ export default function App() {
           </AnimatePresence>
         </main>
         <Footer />
+        <GiveawayPopup /> {/* GiveawayPopup, remove once giveaway is completed */}
       </div>
     </ThemeContext.Provider>
   );

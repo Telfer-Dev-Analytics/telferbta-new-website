@@ -76,7 +76,7 @@ export const Metrics = () => {
   const isVisible = useInView(ref, { once: true, amount: 0.2 });
 
   const metrics = [
-    { value: 5000, label: 'Linkedin/Instagram impressions', icon: '📈' },
+    { value: 16000, label: 'Linkedin/Instagram impressions', icon: '📈' },
     { value: 20, label: 'Events hosted over 2 years', icon: '📅' },
     { value: 3000, label: 'Dollars in sponsorships', icon: '💰', hasPlus: true },
   ];

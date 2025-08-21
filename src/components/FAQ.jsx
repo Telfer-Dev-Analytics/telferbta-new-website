@@ -9,7 +9,8 @@ export const FAQ = () => {
         { q: "Who can join Telfer BTA?", a: "Membership is open to all University of Ottawa students, regardless of faculty. We welcome anyone with a passion for business and technology!" },
         { q: "What are the benefits of joining?", a: "Members get exclusive access to networking events, workshops, case competitions, mentorship programs, and a community of like-minded peers." },
         { q: "Is there a membership fee?", a: "Yes, there is a small annual membership fee which helps us fund our events and provide valuable resources to our members." },
-        { q: "How can I get involved in the executive team?", a: "Executive positions are typically open for application at the end of the winter semester. Keep an eye on our social media and newsletters for announcements!" }
+        { q: "How can I get involved in the executive team?", a: "Executive positions are typically open for application at the end of the winter semester. Keep an eye on our social media and newsletters for announcements!" },
+        { q: "What is BTA and what is our mission?", a: "The Telfer Business Technology Association is a student-led organization that aims to bridge the gap between business and technology. Our mission is to provide post-secondary students with the opportunities to succeed in both the business and technology sectors by creating opportunities to learn new skills and further their knowledge."}
     ];
 
     const toggleFAQ = (index) => {

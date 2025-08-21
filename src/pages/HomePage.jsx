@@ -34,9 +34,9 @@ const HomePage = () => {
       <Events />
       <Sponsors />
       <Team />
-      <Blog />
+      {/*<Blog />*/ /* Uncommment this to reveal a blog post preview on the main page once a blog post has been added*/}
       <FAQ />
-      <Contact />
+      {/*<Contact />*/}
     </>
   );
 };

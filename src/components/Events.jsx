@@ -145,9 +145,9 @@ export const Events = () => {
         { 
             title: "Meet Your Future", 
             date: "2025-10-15T10:00:00", 
-            description: "Explore how AI is revolutionizing the financial sector with guest speakers from top firms.", 
-            image: "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=2832&auto=format&fit=crop",
-            link: "https://example.com/signup"
+            description: "Meet Your Future Networking is an annual gathering hosted by BTA, connecting students with company representatives to explore potential internships and career opportunities. This year, we are introducing the popular resume clinic. Following the networking session, company representatives will review the resumes of students they’ve met and provide personalized feedback and career advice.", 
+            image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop",
+            link: "https://forms.gle/mjA8MGkZcGoRujAM6"
         },
          
     ];
