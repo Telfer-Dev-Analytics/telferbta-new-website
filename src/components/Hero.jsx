@@ -105,7 +105,7 @@ export const Hero = () => {
                 >
                     Bridging the gap between business acumen and technological innovation.
                 </motion.p>
-                <motion.button
+                {/*<motion.button
                     onClick={() => scrollToSection('Contact')}
                     className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform shadow-lg hover:shadow-purple-400/50"
                     whileHover={{ scale: 1.1, y: -5 }}
@@ -115,7 +115,7 @@ export const Hero = () => {
                     style={{ willChange: 'transform' }}
                 >
                     Join Our Community
-                </motion.button>
+                </motion.button> remove once join link has been updated*/}
             </motion.div>
         </section>
     );

@@ -17,7 +17,7 @@ export const Header = () => {
     const btaNodeLogo = `${import.meta.env.BASE_URL}images/btanode.png`;
     const btaNodeLogoBlack = `${import.meta.env.BASE_URL}images/btanode-black.png`;
 
-    const scrollLinks = ['Events', 'Sponsors', 'FAQ', 'Contact'];
+    const scrollLinks = ['Events', 'Sponsors', 'FAQ']; // Add 'Contact' once contact form is completed
 
     useEffect(() => {
         const handleScroll = () => {
